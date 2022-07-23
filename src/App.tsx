@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import './App.css';
+import ItemCard from './Components/ItemCard';
 
 function App() {
 const [userInput, setUserInput] = useState("");
@@ -29,11 +30,7 @@ return (
     {zeldaItemInfo === undefined || zeldaItemInfo === null ? (
         <p>Item not found</p>
       ) : (
-        <div id="item-result">
-          <p>{zeldaItemInfo.data.name.charAt(0).toUpperCase() + zeldaItemInfo.data.name.slice(1)}</p>
-          <img src={zeldaItemInfo.data.image} />
-          <p>{zeldaItemInfo.data.description}</p>
-        </div>
+        <ItemCard data={zeldaItemInfo.data} />
       )}
   </div>
 );
@@ -42,7 +39,7 @@ function search(){
   axios.get(HYRULE_COMPENDIUM_API + userInput)
   .then((res) => {
     setZeldaItemInfo(res.data);
-    console.log(res.data);
+   // console.log(res.data);
   })
   .catch(() => {
     setZeldaItemInfo(null);
