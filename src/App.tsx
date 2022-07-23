@@ -3,6 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import ItemCard from './Components/ItemCard';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 
 function App() {
 const [userInput, setUserInput] = useState("");
@@ -17,11 +20,12 @@ return (
     
     <div>
       <label>Item Name</label><br/>
-      <input type="text" id="item-name" name="item-name" onChange={event => setUserInput(event.target.value)}/><br/>
-      <button onClick={search}>
-      Search
-      </button>
+      <TextField id="standard-basic" label="Standard" variant="standard" onChange={event => setUserInput(event.target.value)}/>
     </div>
+  
+  <div> 
+  <Button variant="text" onClick={search}>Search</Button>
+  </div>
 
     <p>
       You have entered:
