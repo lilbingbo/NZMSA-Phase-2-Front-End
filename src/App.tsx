@@ -14,28 +14,25 @@ const [zeldaItemInfo, setZeldaItemInfo] = useState<undefined | any>(undefined);
 const HYRULE_COMPENDIUM_API = "https://botw-compendium.herokuapp.com/api/v2/entry/";
 return (
   <div>
-    <h1>
-      Hyrule Compendium Search
-    </h1>
-    
-    <div>
-      <label>Item Name</label><br/>
-      <TextField id="standard-basic" label="Standard" variant="standard" onChange={event => setUserInput(event.target.value)}/>
+    <div> 
+      <h1 style={{ display: "flex", justifyContent: "center" }}>Hyrule Compendium Search</h1>
+      <div className="center">
+        <label>Search for creatures, equipment, materials, monsters, or treasure:</label>
+        <br/>
+        <br/>
+        <TextField id="standard-basic" label="Enter item name" variant="standard" onChange={event => setUserInput(event.target.value)}/>
+
+        <Button variant="text" onClick={search}>Search</Button>
+      </div>
     </div>
-  
-  <div> 
-  <Button variant="text" onClick={search}>Search</Button>
-  </div>
-
-    <p>
-      You have entered:
-    </p>
-
+    <br/>
+  <div style={{ display: "flex", justifyContent: "center" }}>
     {zeldaItemInfo === undefined || zeldaItemInfo === null ? (
         <p>Item not found</p>
       ) : (
         <ItemCard data={zeldaItemInfo.data} />
       )}
+  </div>
   </div>
 );
 
