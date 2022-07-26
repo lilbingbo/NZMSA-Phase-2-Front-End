@@ -13,7 +13,6 @@ export default function ItemCard(props) {
       <CardActionArea onClick={()=>{window.open((props.data.image), '_blank', 'noopener,noreferrer');}}>
         <CardMedia
           component="img"
-          height="280"
           image= {props.data.image}
           alt={props.data.name}
         />
